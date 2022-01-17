@@ -1,0 +1,34 @@
+<My_include>
+
+  <recipe>
+    <name>DU</name>
+    <basis>mass</basis>
+    <nuclide> <id>U235</id> <comp>0.0025</comp> </nuclide>
+    <nuclide> <id>U238</id> <comp>0.9975</comp> </nuclide>
+  </recipe>
+
+  <recipe>
+    <name>NU</name>
+    <basis>mass</basis>
+    <nuclide> <id>U235</id>  <comp>0.711</comp> </nuclide>
+    <nuclide> <id>U238</id> <comp>99.289</comp> </nuclide>
+  </recipe>
+
+  <recipe>
+    <name>UOX</name>
+    <basis>mass</basis>
+    <nuclide> <id>U235</id> <comp>0.0421</comp> </nuclide>
+    <nuclide> <id>U238</id> <comp>0.9579</comp> </nuclide>
+  </recipe>
+
+  <recipe>
+    <name>UOX_spent</name>
+    <basis>mass</basis>
+    <nuclide> <id>U235</id>  <comp>.008</comp>   </nuclide>
+    <nuclide> <id>U238</id>  <comp>0.9268</comp> </nuclide>
+    <nuclide> <id>Pu239</id> <comp>0.012</comp>  </nuclide>
+    <nuclide> <id>Am241</id> <comp>0.0011</comp> </nuclide>
+    <nuclide> <id>Cs137</id> <comp>0.0521</comp> </nuclide>
+  </recipe>
+
+</My_include>

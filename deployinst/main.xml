@@ -1,0 +1,108 @@
+<simulation xmlns:xi="http://www.w3.org/2001/XInclude">
+
+
+  <schematype>flat</schematype>
+  <control>
+    <duration>1200</duration> <!-- 2400 normally, 1200 for testing -->
+    <startmonth>1</startmonth>
+    <startyear>2000</startyear>
+    <decay>never</decay>
+    <tolerance_resource>1e-5</tolerance_resource>
+  </control>
+
+  <archetypes>
+    <spec> <lib>cycamore</lib> <name>Source</name> </spec>
+    <spec> <lib>cycamore</lib> <name>DeployInst</name> </spec>
+    <spec> <lib>cycamore</lib> <name>Sink</name> </spec>
+    <spec> <lib>cycamore</lib> <name>Enrichment</name> </spec>
+    <spec> <lib>cycamore</lib> <name>Reactor</name> </spec>
+    <spec> <lib>cycamore</lib> <name>Storage</name> </spec>
+  </archetypes>
+
+  <prototype>
+    <name>Source</name>
+    <config>
+      <Source>
+        <outcommod>NU</outcommod>
+        <outrecipe>NU</outrecipe>
+        <throughput>1e100</throughput>
+      </Source>
+    </config>
+  </prototype>
+
+
+  <prototype>
+    <name>Enrichment</name>
+    <config>
+      <Enrichment>
+        <feed_commod>NU</feed_commod>
+        <feed_recipe>NU</feed_recipe>
+        <product_commod>UOX</product_commod>
+        <tails_commod>DU</tails_commod>
+        <tails_assay>0.0025</tails_assay>
+        <swu_capacity>1e100</swu_capacity>
+        <initial_feed>1e100</initial_feed>
+      </Enrichment>
+    </config>
+  </prototype>
+
+  
+  <prototype>
+    <name>DU_Storage</name>
+    <config>
+      <Storage>
+        <in_commods><val>DU</val></in_commods>
+        <out_commods><val>DU_stored</val></out_commods>
+        <residence_time>0</residence_time>
+      </Storage>
+    </config>
+  </prototype>
+
+
+  <prototype>
+    <name>Waste</name>
+    <config>
+      <Sink>
+        <in_commods>
+          <val>DU_stored</val>
+          <val>UOX_spent_stored</val>
+          <val>Waste</val>
+        </in_commods>
+        <capacity>1e100</capacity>
+      </Sink>
+    </config>
+  </prototype>
+
+
+  <prototype>
+    <name>deployer_FC</name>
+    <config>
+      <DeployInst>
+        <prototypes>
+          <val>Source</val>
+          <val>Enrichment</val>
+          <val>DU_Storage</val>
+          <val>Waste</val>
+        </prototypes>
+        <build_times>
+          <val>1</val>
+          <val>1</val>
+          <val>1</val>
+          <val>1</val>
+        </build_times>
+        <n_build>
+          <val>1</val>
+          <val>1</val>
+          <val>1</val>
+          <val>1</val>
+        </n_build>
+      </DeployInst>
+    </config>
+  </prototype>
+
+
+  <xi:include href="lwr.xml" xpointer="xpointer(//My_include/*)"/>
+  <xi:include href="recipe.xml" xpointer="xpointer(//My_include/*)"/>
+  <agent> <name>deployer_FC</name> <prototype>deployer_FC</prototype> </agent>
+
+</simulation>

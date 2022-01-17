@@ -1,0 +1,47 @@
+<My_include>
+  <facility>
+    <name>LWR_storage</name>
+    <config>
+      <Storage>
+        <in_commods> <val>UOX_spent_cooled</val></in_commods>
+        <out_commods> <val>UOX_spent_stored</val></out_commods>
+        <residence_time>0</residence_time>
+      </Storage>
+    </config>
+  </facility>
+
+
+  <facility>
+    <name>LWR_cooling</name>
+    <config>
+      <Storage>
+        <in_commods> <val>UOX_spent</val></in_commods>
+        <out_commods> <val>UOX_spent_cooled</val></out_commods>
+        <residence_time>81</residence_time>
+      </Storage>
+    </config>
+  </facility>
+
+
+  <facility>
+    <name>LWR</name>
+    <lifetime>720</lifetime>
+    <config>
+      <Reactor>
+        <fuel_inrecipes>  <val>UOX</val>       </fuel_inrecipes>
+        <fuel_outrecipes> <val>UOX_spent</val> </fuel_outrecipes>
+        <fuel_incommods>  <val>UOX</val>       </fuel_incommods>
+        <fuel_outcommods> <val>UOX_spent</val> </fuel_outcommods>
+
+        <cycle_time>18</cycle_time>
+        <refuel_time>0</refuel_time>
+        <assem_size>29565</assem_size>
+        <n_assem_core>3</n_assem_core>
+        <n_assem_batch>1</n_assem_batch>
+        <power_cap>1000</power_cap>
+      </Reactor>
+    </config>
+  </facility>
+
+
+</My_include>
