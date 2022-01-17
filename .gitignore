@@ -1,0 +1,6 @@
+._*
+.ipynb_checkpoints/
+*.sqlite
+*.tar.gz
+*.sw*
+*.dat
