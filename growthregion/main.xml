@@ -6,6 +6,7 @@
     <startyear>2000</startyear>
     <decay>never</decay>
     <tolerance_resource>1e-5</tolerance_resource>
+    <!--<explicit_inventory>true</explicit_inventory>-->
   </control>
 
 
@@ -30,10 +31,10 @@
             <commod>power</commod>
             <piecewise_function>
               <piece> 
-                <start>0</start>
+                <start>1</start>
                 <function>
                   <type>linear</type>
-                  <params>100 0</params>
+                  <params>0 100000</params>
                 </function>
               </piece>
             </piecewise_function>
@@ -41,49 +42,6 @@
         </growth>
       </GrowthRegion> 
     </config>
-
-    <institution> 
-      <name>FC_Inst</name>
-      <initialfacilitylist>
-        <entry>
-          <prototype>Source</prototype>
-          <number>1</number>
-        </entry>
-        <entry>
-          <prototype>Enrichment</prototype>
-          <number>1</number>
-        </entry>
-        <entry>
-          <prototype>DU_Storage</prototype>
-          <number>1</number>
-        </entry>
-        <entry>
-          <prototype>LWR_cooling</prototype>
-          <number>1</number>
-        </entry>
-        <entry>
-          <prototype>LWR_storage</prototype>
-          <number>1</number>
-        </entry>
-        <entry>
-          <prototype>Waste</prototype>
-          <number>1</number>
-        </entry>
-      </initialfacilitylist>
-      <config> 
-        <ManagerInst>
-          <prototypes>
-            <val>Source</val>
-            <val>Enrichment</val>
-            <val>DU_Storage</val>
-            <val>LWR</val>
-            <val>LWR_storage</val>
-            <val>LWR_cooling</val>
-            <val>Waste</val>
-          </prototypes>
-        </ManagerInst>
-      </config>
-    </institution>
 
     <institution>
       <name>Init_LWRs</name>
@@ -258,6 +216,49 @@
             <val>649</val>
           </lifetimes>
         </DeployInst>
+      </config>
+    </institution>
+
+    <institution> 
+      <name>FC_Inst</name>
+      <initialfacilitylist>
+        <entry>
+          <prototype>Source</prototype>
+          <number>1</number>
+        </entry>
+        <entry>
+          <prototype>Enrichment</prototype>
+          <number>1</number>
+        </entry>
+        <entry>
+          <prototype>DU_Storage</prototype>
+          <number>1</number>
+        </entry>
+        <entry>
+          <prototype>LWR_cooling</prototype>
+          <number>1</number>
+        </entry>
+        <entry>
+          <prototype>LWR_storage</prototype>
+          <number>1</number>
+        </entry>
+        <entry>
+          <prototype>Waste</prototype>
+          <number>1</number>
+        </entry>
+      </initialfacilitylist>
+      <config> 
+        <ManagerInst>
+          <prototypes>
+            <val>Source</val>
+            <val>Enrichment</val>
+            <val>DU_Storage</val>
+            <val>LWR</val>
+            <val>LWR_storage</val>
+            <val>LWR_cooling</val>
+            <val>Waste</val>
+          </prototypes>
+        </ManagerInst>
       </config>
     </institution>
   </region>

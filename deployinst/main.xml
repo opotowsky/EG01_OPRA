@@ -8,6 +8,7 @@
     <startyear>2000</startyear>
     <decay>never</decay>
     <tolerance_resource>1e-5</tolerance_resource>
+    <!--<explicit_inventory>true</explicit_inventory>-->
   </control>
 
   <archetypes>

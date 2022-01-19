@@ -1,0 +1,173 @@
+<simulation xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <control>
+    <duration>1200</duration> <!-- 2400 normally, 1200 for testing -->
+    <startmonth>1</startmonth>
+    <startyear>2000</startyear>
+    <decay>never</decay>
+    <tolerance_resource>1e-5</tolerance_resource>
+    <!--<explicit_inventory>true</explicit_inventory>-->
+  </control>
+
+
+  <archetypes>
+    <spec> <lib>cycamore</lib> <name>GrowthRegion</name> </spec>
+    <spec> <lib>cycamore</lib> <name>ManagerInst</name> </spec>
+    <spec> <lib>cycamore</lib> <name>DeployInst</name> </spec>
+    <spec> <lib>cycamore</lib> <name>Source</name> </spec>
+    <spec> <lib>cycamore</lib> <name>Enrichment</name> </spec>
+    <spec> <lib>cycamore</lib> <name>Reactor</name> </spec>
+    <spec> <lib>cycamore</lib> <name>Storage</name> </spec>
+    <spec> <lib>cycamore</lib> <name>Sink</name> </spec>
+  </archetypes>
+
+ 
+  <region>
+    <name>GrowthRegion</name>
+    <config> 
+      <GrowthRegion> 
+        <growth>
+          <item>
+            <commod>power</commod>
+            <piecewise_function>
+              <piece> 
+                <start>0</start>
+                <function>
+                  <type>linear</type>
+                  <params>0 100000</params>
+                </function>
+              </piece>
+            </piecewise_function>
+          </item>
+        </growth>
+      </GrowthRegion> 
+    </config>
+
+    <institution> 
+      <name>FC_Inst</name>
+      <initialfacilitylist>
+        <entry>
+          <prototype>Source</prototype>
+          <number>1</number>
+        </entry>
+        <entry>
+          <prototype>Enrichment</prototype>
+          <number>1</number>
+        </entry>
+        <entry>
+          <prototype>DU_Storage</prototype>
+          <number>1</number>
+        </entry>
+        <entry>
+          <prototype>LWR</prototype>
+          <number>1</number>
+        </entry>
+        <entry>
+          <prototype>LWR_cooling</prototype>
+          <number>1</number>
+        </entry>
+        <entry>
+          <prototype>LWR_storage</prototype>
+          <number>1</number>
+        </entry>
+        <entry>
+          <prototype>Waste</prototype>
+          <number>1</number>
+        </entry>
+      </initialfacilitylist>
+      <config> 
+        <ManagerInst>
+          <prototypes>
+            <val>Source</val>
+            <val>Enrichment</val>
+            <val>DU_Storage</val>
+            <val>LWR</val>
+            <val>LWR_storage</val>
+            <val>LWR_cooling</val>
+            <val>Waste</val>
+          </prototypes>
+        </ManagerInst>
+      </config>
+    </institution>
+<!--
+    <institution>
+      <name>Init_LWRs</name>
+      <config>
+        <DeployInst>
+          <prototypes>
+            <val>LWR</val>
+          </prototypes>
+          <n_build>
+            <val>2</val>
+          </n_build>
+          <build_times>
+            <val>1</val>
+          </build_times>
+          <lifetimes>
+            <val>199</val>
+          </lifetimes>
+        </DeployInst>
+      </config>
+    </institution>
+-->
+  </region>
+
+  <facility>
+    <name>Source</name>
+    <config>
+      <Source>
+        <outcommod>NU</outcommod>
+        <outrecipe>NU</outrecipe>
+        <throughput>1e100</throughput>
+      </Source>
+    </config>
+  </facility>
+
+
+  <facility>
+    <name>Enrichment</name>
+    <config>
+      <Enrichment>
+        <feed_commod>NU</feed_commod>
+        <feed_recipe>NU</feed_recipe>
+        <product_commod>UOX</product_commod>
+        <tails_commod>DU</tails_commod>
+        <tails_assay>0.0025</tails_assay>
+        <swu_capacity>1e100</swu_capacity>
+        <initial_feed>1e100</initial_feed>
+      </Enrichment>
+    </config>
+  </facility>
+
+  
+  <facility>
+    <name>DU_Storage</name>
+    <config>
+      <Storage>
+        <in_commods><val>DU</val></in_commods>
+        <out_commods><val>DU_stored</val></out_commods>
+        <residence_time>0</residence_time>
+      </Storage>
+    </config>
+  </facility>
+
+
+  <facility>
+    <name>Waste</name>
+    <config>
+      <Sink>
+        <in_commods>
+          <val>DU_stored</val>
+          <val>UOX_spent_stored</val>
+          <val>Waste</val>
+        </in_commods>
+        <capacity>1e100</capacity>
+      </Sink>
+    </config>
+  </facility>
+
+
+  <xi:include href="lwr.xml" xpointer="xpointer(//My_include/*)"/>
+  <xi:include href="recipe.xml" xpointer="xpointer(//My_include/*)"/>
+
+</simulation>
