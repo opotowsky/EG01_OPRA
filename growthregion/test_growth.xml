@@ -5,7 +5,7 @@
     <startmonth>1</startmonth>
     <startyear>2000</startyear>
     <decay>never</decay>
-    <tolerance_resource>1e-5</tolerance_resource>
+    <!--<tolerance_resource>1e-5</tolerance_resource>-->
     <!--<explicit_inventory>true</explicit_inventory>-->
   </control>
 
@@ -31,7 +31,7 @@
             <commod>power</commod>
             <piecewise_function>
               <piece> 
-                <start>0</start>
+                <start>100</start>
                 <function>
                   <type>linear</type>
                   <params>0 100000</params>
@@ -60,7 +60,7 @@
         </entry>
         <entry>
           <prototype>LWR</prototype>
-          <number>1</number>
+          <number>10</number>
         </entry>
         <entry>
           <prototype>LWR_cooling</prototype>
