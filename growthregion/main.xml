@@ -13,7 +13,7 @@
   <archetypes>
     <spec> <lib>cycamore</lib> <name>GrowthRegion</name> </spec>
     <spec> <lib>cycamore</lib> <name>ManagerInst</name> </spec>
-    <spec> <lib>cycamore</lib> <name>DeployInst</name> </spec>
+    <spec> <lib>cycamore</lib> <name>DeployManagerInst</name> </spec>
     <spec> <lib>cycamore</lib> <name>Source</name> </spec>
     <spec> <lib>cycamore</lib> <name>Enrichment</name> </spec>
     <spec> <lib>cycamore</lib> <name>Reactor</name> </spec>
@@ -31,7 +31,7 @@
             <commod>power</commod>
             <piecewise_function>
               <piece> 
-                <start>0</start>
+                <start>1</start>
                 <function>
                   <type>linear</type>
                   <params>0 100000</params>
@@ -46,7 +46,7 @@
     <institution>
       <name>Init_LWRs</name>
       <config>
-        <DeployInst>
+        <DeployManagerInst>
           <prototypes>
             <val>LWR</val>
             <val>LWR</val>
@@ -215,7 +215,7 @@
             <val>637</val>
             <val>649</val>
           </lifetimes>
-        </DeployInst>
+        </DeployManagerInst>
       </config>
     </institution>
 

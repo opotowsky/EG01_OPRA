@@ -12,8 +12,8 @@
 
   <archetypes>
     <spec> <lib>cycamore</lib> <name>GrowthRegion</name> </spec>
+    <spec> <lib>cycamore</lib> <name>DeployManagerInst</name> </spec>
     <spec> <lib>cycamore</lib> <name>ManagerInst</name> </spec>
-    <spec> <lib>cycamore</lib> <name>DeployInst</name> </spec>
     <spec> <lib>cycamore</lib> <name>Source</name> </spec>
     <spec> <lib>cycamore</lib> <name>Enrichment</name> </spec>
     <spec> <lib>cycamore</lib> <name>Reactor</name> </spec>
@@ -59,10 +59,6 @@
           <number>1</number>
         </entry>
         <entry>
-          <prototype>LWR</prototype>
-          <number>10</number>
-        </entry>
-        <entry>
           <prototype>LWR_cooling</prototype>
           <number>1</number>
         </entry>
@@ -78,38 +74,38 @@
       <config> 
         <ManagerInst>
           <prototypes>
+            <val>LWR</val>
             <val>Source</val>
             <val>Enrichment</val>
             <val>DU_Storage</val>
-            <val>LWR</val>
-            <val>LWR_storage</val>
             <val>LWR_cooling</val>
+            <val>LWR_storage</val>
             <val>Waste</val>
           </prototypes>
         </ManagerInst>
       </config>
     </institution>
-<!--
-    <institution>
-      <name>Init_LWRs</name>
-      <config>
-        <DeployInst>
+      
+
+    <institution> 
+      <name>Init_Inst</name>
+      <config> 
+        <DeployManagerInst>
           <prototypes>
             <val>LWR</val>
           </prototypes>
           <n_build>
-            <val>2</val>
+            <val>10</val>
           </n_build>
           <build_times>
             <val>1</val>
           </build_times>
           <lifetimes>
-            <val>199</val>
+            <val>200</val>
           </lifetimes>
-        </DeployInst>
+        </DeployManagerInst>
       </config>
     </institution>
--->
   </region>
 
   <facility>
