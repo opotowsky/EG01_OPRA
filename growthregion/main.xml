@@ -1,7 +1,7 @@
 <simulation xmlns:xi="http://www.w3.org/2001/XInclude">
 
   <control>
-    <duration>1200</duration> <!-- 2400 normally, 1200 for testing -->
+    <duration>1200</duration>
     <startmonth>1</startmonth>
     <startyear>2000</startyear>
     <decay>never</decay>
@@ -12,13 +12,13 @@
 
   <archetypes>
     <spec> <lib>cycamore</lib> <name>GrowthRegion</name> </spec>
-    <spec> <lib>cycamore</lib> <name>ManagerInst</name> </spec>
-    <spec> <lib>cycamore</lib> <name>DeployManagerInst</name> </spec>
-    <spec> <lib>cycamore</lib> <name>Source</name> </spec>
-    <spec> <lib>cycamore</lib> <name>Enrichment</name> </spec>
-    <spec> <lib>cycamore</lib> <name>Reactor</name> </spec>
-    <spec> <lib>cycamore</lib> <name>Storage</name> </spec>
-    <spec> <lib>cycamore</lib> <name>Sink</name> </spec>
+    <spec> <lib>cycamore</lib> <name>ManagerInst</name>  </spec>
+    <spec> <lib>cycamore</lib> <name>DeployInst</name>   </spec>
+    <spec> <lib>cycamore</lib> <name>Source</name>       </spec>
+    <spec> <lib>cycamore</lib> <name>Enrichment</name>   </spec>
+    <spec> <lib>cycamore</lib> <name>Reactor</name>      </spec>
+    <spec> <lib>cycamore</lib> <name>Storage</name>      </spec>
+    <spec> <lib>cycamore</lib> <name>Sink</name>         </spec>
   </archetypes>
 
  
@@ -46,176 +46,7 @@
     <institution>
       <name>Init_LWRs</name>
       <config>
-        <DeployManagerInst>
-          <prototypes>
-            <val>LWR</val>
-            <val>LWR</val>
-            <val>LWR</val>
-            <val>LWR</val>
-            <val>LWR</val>
-            <val>LWR</val>
-            <val>LWR</val>
-            <val>LWR</val>
-            <val>LWR</val>
-            <val>LWR</val>
-            <val>LWR</val>
-            <val>LWR</val>
-            <val>LWR</val>
-            <val>LWR</val>
-            <val>LWR</val>
-            <val>LWR</val>
-            <val>LWR</val>
-            <val>LWR</val>
-            <val>LWR</val>
-            <val>LWR</val>
-            <val>LWR</val>
-            <val>LWR</val>
-            <val>LWR</val>
-            <val>LWR</val>
-            <val>LWR</val>
-            <val>LWR</val>
-            <val>LWR</val>
-            <val>LWR</val>
-            <val>LWR</val>
-            <val>LWR</val>
-            <val>LWR</val>
-            <val>LWR</val>
-            <val>LWR</val>
-            <val>LWR</val>
-            <val>LWR</val>
-            <val>LWR</val>
-            <val>LWR</val>
-            <val>LWR</val>
-            <val>LWR</val>
-            <val>LWR</val>
-          </prototypes>
-          <n_build>
-            <val>3</val>
-            <val>2</val>
-            <val>3</val>
-            <val>2</val>
-            <val>3</val>
-            <val>2</val>
-            <val>3</val>
-            <val>2</val>
-            <val>3</val>
-            <val>2</val>
-            <val>3</val>
-            <val>2</val>
-            <val>3</val>
-            <val>2</val>
-            <val>3</val>
-            <val>2</val>
-            <val>3</val>
-            <val>2</val>
-            <val>3</val>
-            <val>2</val>
-            <val>3</val>
-            <val>2</val>
-            <val>3</val>
-            <val>2</val>
-            <val>3</val>
-            <val>2</val>
-            <val>3</val>
-            <val>2</val>
-            <val>3</val>
-            <val>2</val>
-            <val>3</val>
-            <val>2</val>
-            <val>3</val>
-            <val>2</val>
-            <val>3</val>
-            <val>2</val>
-            <val>3</val>
-            <val>2</val>
-            <val>3</val>
-            <val>2</val>
-          </n_build>
-          <build_times>
-            <val>1</val>
-            <val>1</val>
-            <val>1</val>
-            <val>1</val>
-            <val>1</val>
-            <val>1</val>
-            <val>1</val>
-            <val>1</val>
-            <val>1</val>
-            <val>1</val>
-            <val>1</val>
-            <val>1</val>
-            <val>1</val>
-            <val>1</val>
-            <val>1</val>
-            <val>1</val>
-            <val>1</val>
-            <val>1</val>
-            <val>1</val>
-            <val>1</val>
-            <val>1</val>
-            <val>1</val>
-            <val>1</val>
-            <val>1</val>
-            <val>1</val>
-            <val>1</val>
-            <val>1</val>
-            <val>1</val>
-            <val>1</val>
-            <val>1</val>
-            <val>1</val>
-            <val>1</val>
-            <val>1</val>
-            <val>1</val>
-            <val>1</val>
-            <val>1</val>
-            <val>1</val>
-            <val>1</val>
-            <val>1</val>
-            <val>1</val>
-          </build_times>
-          <lifetimes>
-            <val>181</val>
-            <val>193</val>
-            <val>205</val>
-            <val>217</val>
-            <val>229</val>
-            <val>241</val>
-            <val>253</val>
-            <val>265</val>
-            <val>277</val>
-            <val>289</val>
-            <val>301</val>
-            <val>313</val>
-            <val>325</val>
-            <val>337</val>
-            <val>349</val>
-            <val>361</val>
-            <val>373</val>
-            <val>385</val>
-            <val>397</val>
-            <val>409</val>
-            <val>421</val>
-            <val>433</val>
-            <val>445</val>
-            <val>457</val>
-            <val>469</val>
-            <val>481</val>
-            <val>493</val>
-            <val>505</val>
-            <val>517</val>
-            <val>529</val>
-            <val>541</val>
-            <val>553</val>
-            <val>565</val>
-            <val>577</val>
-            <val>589</val>
-            <val>601</val>
-            <val>613</val>
-            <val>625</val>
-            <val>637</val>
-            <val>649</val>
-          </lifetimes>
-        </DeployManagerInst>
+         <xi:include href="init_fleet.xml"/>
       </config>
     </institution>
 
