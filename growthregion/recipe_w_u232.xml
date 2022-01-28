@@ -17,27 +17,45 @@
     <nuclide> <id>U238</id> <comp>0.992837393800</comp> </nuclide>
   </recipe>
 
+<!-- 4.21% U235 recipe (no corresponding spent fuel recipe yet)
   <recipe>
     <name>UOX</name>
     <basis>mass</basis>
-    <nuclide> <id>U232</id> <comp>0.0000000008175</comp> </nuclide>
-    <nuclide> <id>U233</id> <comp>0.0000000009785</comp> </nuclide>
-    <nuclide> <id>U234</id> <comp>0.0003809994703</comp> </nuclide>
-    <nuclide> <id>U235</id> <comp>0.0424519679115</comp> </nuclide>
-    <nuclide> <id>U238</id> <comp>0.9571670308170</comp> </nuclide>
+    <nuclide> <id>U232</id> <comp>0.0000000010434</comp> </nuclide>
+    <nuclide> <id>U233</id> <comp>0.0000000012228</comp> </nuclide>
+    <nuclide> <id>U234</id> <comp>0.0004631049466</comp> </nuclide>
+    <nuclide> <id>U235</id> <comp>0.0499062301796</comp> </nuclide>
+    <nuclide> <id>U238</id> <comp>0.9496306626020</comp> </nuclide>
+  </recipe>
+-->
+
+<!-- 5% U235 recipe -->
+  <recipe>
+    <name>UOX</name>
+    <basis>mass</basis>
+    <nuclide> <id>U232</id> <comp>0.0000000010434</comp> </nuclide>
+    <nuclide> <id>U233</id> <comp>0.0000000012228</comp> </nuclide>
+    <nuclide> <id>U234</id> <comp>0.0004631049466</comp> </nuclide>
+    <nuclide> <id>U235</id> <comp>0.0499062301796</comp> </nuclide>
+    <nuclide> <id>U238</id> <comp>0.9496306626020</comp> </nuclide>
   </recipe>
 
   <recipe>
     <name>UOX_spent</name>
     <basis>mass</basis>
-    <nuclide> <id>U232</id>  <comp>0.0000000008175</comp> </nuclide>
-    <nuclide> <id>U233</id>  <comp>0.0000000009785</comp> </nuclide>
-    <nuclide> <id>U234</id>  <comp>0.0003809994703</comp> </nuclide>
-    <nuclide> <id>U235</id>  <comp>0.0080000000000</comp> </nuclide>
-    <nuclide> <id>U238</id>  <comp>0.9268000000000</comp> </nuclide>
-    <nuclide> <id>Pu239</id> <comp>0.0120000000000</comp> </nuclide>
-    <nuclide> <id>Am241</id> <comp>0.0011000000000</comp> </nuclide>
-    <nuclide> <id>Cs137</id> <comp>0.0521000000000</comp> </nuclide>
+    <nuclide> <id>U232</id>  <comp>0.0000000009065</comp> </nuclide>
+    <nuclide> <id>U233</id>  <comp>0.0000000062943</comp> </nuclide>
+    <nuclide> <id>U234</id>  <comp>0.0002327879338</comp> </nuclide>
+    <nuclide> <id>U235</id>  <comp>0.0175266370423</comp> </nuclide>
+    <nuclide> <id>U236</id>  <comp>0.0062071106222</comp> </nuclide>
+    <!-- <nuclide> <id>U238</id>  <comp>0.9760334572009</comp> </nuclide> -->
+    <!-- The below are placeholders until other calcs can happen. 
+         U238 is reduced according to these fake values
+    -->
+    <nuclide> <id>U238</id>  <comp>0.9250334572009</comp> </nuclide>
+    <nuclide> <id>Pu239</id> <comp>0.0100000000000</comp> </nuclide>
+    <nuclide> <id>Am241</id> <comp>0.0010000000000</comp> </nuclide>
+    <nuclide> <id>Cs137</id> <comp>0.0400000000000</comp> </nuclide>
   </recipe>
 
 </My_include>
