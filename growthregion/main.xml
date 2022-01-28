@@ -16,6 +16,7 @@
     <spec> <lib>cycamore</lib> <name>DeployInst</name>   </spec>
     <spec> <lib>cycamore</lib> <name>Source</name>       </spec>
     <spec> <lib>cycamore</lib> <name>Enrichment</name>   </spec>
+    <spec> <lib>cycamore</lib> <name>Mixer</name>        </spec>
     <spec> <lib>cycamore</lib> <name>Reactor</name>      </spec>
     <spec> <lib>cycamore</lib> <name>Storage</name>      </spec>
     <spec> <lib>cycamore</lib> <name>Sink</name>         </spec>
@@ -58,7 +59,15 @@
           <number>1</number>
         </entry>
         <entry>
+          <prototype>Source232</prototype>
+          <number>1</number>
+        </entry>
+        <entry>
           <prototype>Enrichment</prototype>
+          <number>1</number>
+        </entry>
+        <entry>
+          <prototype>EnrMixer</prototype>
           <number>1</number>
         </entry>
         <entry>
@@ -82,7 +91,9 @@
         <ManagerInst>
           <prototypes>
             <val>Source</val>
+            <val>Source232</val>
             <val>Enrichment</val>
+            <val>EnrMixer</val>
             <val>DU_Storage</val>
             <val>LWR</val>
             <val>LWR_storage</val>
@@ -105,6 +116,16 @@
     </config>
   </facility>
 
+  <facility>
+    <name>Source232</name>
+    <config>
+      <Source>
+        <outcommod>Additive</outcommod>
+        <outrecipe>Additive</outrecipe>
+        <throughput>1e100</throughput>
+      </Source>
+    </config>
+  </facility>
 
   <facility>
     <name>Enrichment</name>
@@ -112,7 +133,7 @@
       <Enrichment>
         <feed_commod>NU</feed_commod>
         <feed_recipe>NU</feed_recipe>
-        <product_commod>UOX</product_commod>
+        <product_commod>AlmostUOX</product_commod>
         <tails_commod>DU</tails_commod>
         <tails_assay>0.0025</tails_assay>
         <swu_capacity>1e100</swu_capacity>
@@ -121,18 +142,57 @@
     </config>
   </facility>
 
-  
+<!-- Since we are using recipe-based enrichment & the enr facility can't handle
+more than two isotopes: Making a post-enrichment mixer facility that will take
+in AlmostUOX and various other isotopes to produce the UOX recipe.  -->
+  <facility>
+    <name>EnrMixer</name>
+    <config>
+      <Mixer>
+        <in_streams>
+          <stream>
+            <info>
+              <mixing_ratio>0.0005</mixing_ratio>
+              <buf_size>1e100</buf_size>
+            </info>
+            <commodities>
+              <item>
+                <commodity>Additive</commodity>
+                <pref>1.0</pref>
+              </item>
+            </commodities>
+          </stream>
+          <stream>
+            <info>
+              <mixing_ratio>0.9995</mixing_ratio>
+              <buf_size>1e100</buf_size>
+            </info>
+            <commodities>
+              <item>
+                <commodity>AlmostUOX</commodity>
+                <pref>1.0</pref>
+              </item>
+            </commodities>
+          </stream>
+        </in_streams>
+        <out_commod>UOX</out_commod>
+        <throughput>1e100</throughput>
+        <out_buf_size>1e100</out_buf_size>
+      </Mixer>
+    </config>
+  </facility>
+
   <facility>
     <name>DU_Storage</name>
     <config>
       <Storage>
         <in_commods><val>DU</val></in_commods>
+        <in_recipe>DU</in_recipe>
         <out_commods><val>DU_stored</val></out_commods>
         <residence_time>0</residence_time>
       </Storage>
     </config>
   </facility>
-
 
   <facility>
     <name>Waste</name>
@@ -140,14 +200,13 @@
       <Sink>
         <in_commods>
           <val>DU_stored</val>
-          <val>UOX_spent_stored</val>
+          <val>SpentUOX_stored</val>
           <val>Waste</val>
         </in_commods>
         <capacity>1e100</capacity>
       </Sink>
     </config>
   </facility>
-
 
   <xi:include href="lwr.xml" xpointer="xpointer(//My_include/*)"/>
   <xi:include href="recipe.xml" xpointer="xpointer(//My_include/*)"/>

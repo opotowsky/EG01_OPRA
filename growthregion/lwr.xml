@@ -3,45 +3,47 @@
     <name>LWR_storage</name>
     <config>
       <Storage>
-        <in_commods> <val>UOX_spent_cooled</val></in_commods>
-        <out_commods> <val>UOX_spent_stored</val></out_commods>
+        <in_commods> <val>SpentUOX_cooled</val> </in_commods>
+        <out_commods> <val>SpentUOX_stored</val> </out_commods>
         <residence_time>0</residence_time>
       </Storage>
     </config>
   </facility>
 
-
   <facility>
     <name>LWR_cooling</name>
     <config>
       <Storage>
-        <in_commods> <val>UOX_spent</val></in_commods>
-        <out_commods> <val>UOX_spent_cooled</val></out_commods>
+        <in_commods> <val>SpentUOX</val> </in_commods>
+        <out_commods> <val>SpentUOX_cooled</val> </out_commods>
         <residence_time>81</residence_time>
       </Storage>
     </config>
   </facility>
-
 
   <facility>
     <name>LWR</name>
     <lifetime>720</lifetime>
     <config>
       <Reactor>
-        <fuel_inrecipes>  <val>UOX</val>       </fuel_inrecipes>
-        <fuel_outrecipes> <val>UOX_spent</val> </fuel_outrecipes>
-        <fuel_incommods>  <val>UOX</val>       </fuel_incommods>
-        <fuel_outcommods> <val>UOX_spent</val> </fuel_outcommods>
-
+        <!--fuel input info-->
+        <fuel_incommods> <val>UOX</val> </fuel_incommods>
+        <fuel_outcommods> <val>SpentUOX</val> </fuel_outcommods>
+        <fuel_inrecipes> <val>UOX_no232</val> </fuel_inrecipes>
+        <fuel_outrecipes> <val>UOX_spent_no232</val> </fuel_outrecipes>
+        <recipe_change_times> <val>264</val> </recipe_change_times> <!--switches to U232 additive in 2022-->
+        <recipe_change_commods> <val>UOX</val> </recipe_change_commods>
+        <recipe_change_in> <val>UOX</val> </recipe_change_in>
+        <recipe_change_out> <val>UOX_spent</val> </recipe_change_out>
+        <!-- reactor parameters-->
         <cycle_time>18</cycle_time>
         <refuel_time>0</refuel_time>
-        <assem_size>29565</assem_size>
+        <assem_size>29565</assem_size> <!--kg-->
         <n_assem_core>3</n_assem_core>
         <n_assem_batch>1</n_assem_batch>
-        <power_cap>1000</power_cap>
+        <power_cap>1000</power_cap> <!--MWe-->
       </Reactor>
     </config>
   </facility>
-
 
 </My_include>
