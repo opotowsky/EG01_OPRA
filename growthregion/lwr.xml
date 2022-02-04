@@ -19,8 +19,11 @@
     <config>
       <Storage>
         <in_commods> 
+          <val>SpentUOX</val>
+<!--
           <val>SpentUOX_no232</val> 
-          <val>SpentUOX_232</val> 
+          <val>SpentUOX_232</val>
+-->
         </in_commods>
         <out_commods> 
           <val>SpentUOX_cooled</val> 
@@ -29,7 +32,8 @@
       </Storage>
     </config>
   </facility>
-  
+
+<!--
   <facility>
     <name>LWR</name>
     <lifetime>720</lifetime>
@@ -55,15 +59,9 @@
           <val>1</val>
           <val>1e-5</val>
         </fuel_prefs>
-        <pref_change_times>
-          <val>264</val>
-        </pref_change_times>
-        <pref_change_commods> 
-          <val>UOX_232</val> 
-        </pref_change_commods>
-        <pref_change_values> 
-          <val>1e5</val> 
-        </pref_change_values>
+        <pref_change_times> <val>264</val> </pref_change_times>
+        <pref_change_commods> <val>UOX_232</val> </pref_change_commods>
+        <pref_change_values> <val>1e5</val> </pref_change_values>
         <cycle_time>18</cycle_time>
         <refuel_time>0</refuel_time>
         <assem_size>29565</assem_size> 
@@ -73,8 +71,8 @@
       </Reactor>
     </config>
   </facility>
+-->
 
-<!--
   <facility>
     <name>LWR</name>
     <lifetime>720</lifetime>
@@ -97,7 +95,7 @@
       </Reactor>
     </config>
   </facility>
--->
+
         <!--fuel input info-->
     <!--switches to U232 additive in 2022-->
         <!-- reactor parameters-->

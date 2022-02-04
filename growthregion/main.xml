@@ -50,7 +50,47 @@
     </institution>
 
     <institution> 
-      <name>FC_Inst</name>
+      <name>FC_DepInst</name>
+      <config>
+        <DeployInst>
+          <prototypes>
+            <val>Enrichment_no232</val>
+            <val>Enrichment_232</val>
+            <val>EnrStorage_no232</val>
+            <val>EnrStorage_232</val>
+            <val>EnrMixer_no232</val>
+            <val>EnrMixer_232</val>
+          </prototypes>
+          <n_build>
+            <val>1</val>
+            <val>1</val>
+            <val>1</val>
+            <val>1</val>
+            <val>1</val>
+            <val>1</val>
+          </n_build>
+          <build_times>
+            <val>1</val>
+            <val>263</val>
+            <val>1</val>
+            <val>263</val>
+            <val>1</val>
+            <val>263</val>
+          </build_times>
+          <lifetimes>
+            <val>263</val>
+            <val>-1</val>
+            <val>263</val>
+            <val>-1</val>
+            <val>263</val>
+            <val>-1</val>
+          </lifetimes>
+        </DeployInst>
+      </config>
+    </institution>
+
+    <institution> 
+      <name>FC_ManInst</name>
       <initialfacilitylist>
         <entry>
           <prototype>Source</prototype>
@@ -68,6 +108,7 @@
           <prototype>Source234</prototype>
           <number>1</number>
         </entry>
+<!--
         <entry>
           <prototype>Enrichment_no232</prototype>
           <number>1</number>
@@ -92,6 +133,7 @@
           <prototype>EnrMixer_232</prototype>
           <number>1</number>
         </entry>
+-->
         <entry>
           <prototype>DU_Storage</prototype>
           <number>1</number>
@@ -116,12 +158,14 @@
             <val>Source232</val>
             <val>Source233</val>
             <val>Source234</val>
+<!--
             <val>Enrichment_no232</val>
             <val>Enrichment_232</val>
             <val>EnrStorage_no232</val>
             <val>EnrStorage_232</val>
-            <val>EnrMixer_232</val>
             <val>EnrMixer_no232</val>
+            <val>EnrMixer_232</val>
+-->
             <val>DU_Storage</val>
             <val>LWR</val>
             <val>LWR_storage</val>
@@ -256,6 +300,7 @@ recipes.  -->
             </commodities>
           </stream>
         </in_streams>
+        <!--<out_commod>UOX</out_commod>-->
         <out_commod>UOX_no232</out_commod>
         <throughput>1e10</throughput>
         <out_buf_size>1e20</out_buf_size>
@@ -331,6 +376,7 @@ recipes.  -->
             </commodities>
           </stream>
         </in_streams>
+        <!--<out_commod>UOX</out_commod>-->
         <out_commod>UOX_232</out_commod>
         <throughput>1e10</throughput>
         <out_buf_size>1e20</out_buf_size>
