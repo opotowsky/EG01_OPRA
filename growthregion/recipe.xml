@@ -29,40 +29,53 @@
   </recipe>
   
   <recipe>
-    <name>Additive</name>
+    <name>U232</name>
     <basis>mass</basis>
-    <nuclide> <id>U232</id> <comp>0.3553</comp> </nuclide>
-    <nuclide> <id>U233</id> <comp>0.4435</comp> </nuclide>
-    <nuclide> <id>U234</id> <comp>0.1732</comp> </nuclide>
-    <nuclide> <id>U235</id> <comp>0.0237</comp> </nuclide>
-    <nuclide> <id>U236</id> <comp>0.0043</comp> </nuclide>
+    <nuclide> <id>U232</id> <comp>1.0</comp> </nuclide>
   </recipe>
   
   <recipe>
-    <name>AlmostUOX</name>
+    <name>U233</name>
     <basis>mass</basis>
-    <nuclide> <id>U235</id> <comp>0.05</comp> </nuclide>
-    <nuclide> <id>U238</id> <comp>0.95</comp> </nuclide>
+    <nuclide> <id>U233</id> <comp>1.0</comp> </nuclide>
+  </recipe>
+  
+  <recipe>
+    <name>U234</name>
+    <basis>mass</basis>
+    <nuclide> <id>U234</id> <comp>1.0</comp> </nuclide>
+  </recipe>
+  
+  <recipe>
+    <name>AlmostUOX_no232</name>
+    <basis>mass</basis>
+    <nuclide> <id>U235</id> <comp>0.0499062302930</comp> </nuclide>
+    <nuclide> <id>U238</id> <comp>0.9496306647594</comp> </nuclide>
+  </recipe>
+
+  <recipe>
+    <name>AlmostUOX_232</name>
+    <basis>mass</basis>
+    <nuclide> <id>U235</id> <comp>0.0499062301796</comp> </nuclide>
+    <nuclide> <id>U238</id> <comp>0.9496306626077</comp> </nuclide>
   </recipe>
 
   <recipe>
     <name>UOX_no232</name>
     <basis>mass</basis>
-    <nuclide> <id>U232</id> <comp>0.0000000000000</comp> </nuclide>
-    <nuclide> <id>U233</id> <comp>0.0000000000000</comp> </nuclide>
     <nuclide> <id>U234</id> <comp>0.0004631049477</comp> </nuclide>
     <nuclide> <id>U235</id> <comp>0.0499062302930</comp> </nuclide>
     <nuclide> <id>U238</id> <comp>0.9496306647594</comp> </nuclide>
   </recipe>
 
   <recipe>
-    <name>UOX</name>
+    <name>UOX_232</name>
     <basis>mass</basis>
     <nuclide> <id>U232</id> <comp>0.0000000010434</comp> </nuclide>
     <nuclide> <id>U233</id> <comp>0.0000000012228</comp> </nuclide>
     <nuclide> <id>U234</id> <comp>0.0004631049466</comp> </nuclide>
     <nuclide> <id>U235</id> <comp>0.0499062301796</comp> </nuclide>
-    <nuclide> <id>U238</id> <comp>0.9496306626020</comp> </nuclide>
+    <nuclide> <id>U238</id> <comp>0.9496306626077</comp> </nuclide>
   </recipe>
 
   <recipe>
@@ -84,7 +97,7 @@
   </recipe>
 
   <recipe>
-    <name>UOX_spent</name>
+    <name>UOX_spent_232</name>
     <basis>mass</basis>
     <nuclide> <id>U232</id>  <comp>0.0000000009065</comp> </nuclide>
     <nuclide> <id>U233</id>  <comp>0.0000000062943</comp> </nuclide>

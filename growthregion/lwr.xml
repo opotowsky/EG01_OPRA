@@ -3,8 +3,12 @@
     <name>LWR_storage</name>
     <config>
       <Storage>
-        <in_commods> <val>SpentUOX_cooled</val> </in_commods>
-        <out_commods> <val>SpentUOX_stored</val> </out_commods>
+        <in_commods> 
+          <val>SpentUOX_cooled</val> 
+        </in_commods>
+        <out_commods> 
+          <val>SpentUOX_stored</val> 
+        </out_commods>
         <residence_time>0</residence_time>
       </Storage>
     </config>
@@ -14,36 +18,88 @@
     <name>LWR_cooling</name>
     <config>
       <Storage>
-        <in_commods> <val>SpentUOX</val> </in_commods>
-        <out_commods> <val>SpentUOX_cooled</val> </out_commods>
+        <in_commods> 
+          <val>SpentUOX_no232</val> 
+          <val>SpentUOX_232</val> 
+        </in_commods>
+        <out_commods> 
+          <val>SpentUOX_cooled</val> 
+        </out_commods>
         <residence_time>81</residence_time>
       </Storage>
     </config>
   </facility>
-
+  
   <facility>
     <name>LWR</name>
     <lifetime>720</lifetime>
     <config>
       <Reactor>
-        <!--fuel input info-->
+        <fuel_incommods> 
+          <val>UOX_no232</val> 
+          <val>UOX_232</val> 
+        </fuel_incommods>
+        <fuel_outcommods> 
+          <val>SpentUOX_no232</val> 
+          <val>SpentUOX_232</val> 
+        </fuel_outcommods>
+        <fuel_inrecipes> 
+          <val>UOX_no232</val> 
+          <val>UOX_232</val> 
+        </fuel_inrecipes>
+        <fuel_outrecipes> 
+          <val>UOX_spent_no232</val> 
+          <val>UOX_spent_232</val> 
+        </fuel_outrecipes>
+        <fuel_prefs>
+          <val>1</val>
+          <val>1e-5</val>
+        </fuel_prefs>
+        <pref_change_times>
+          <val>264</val>
+        </pref_change_times>
+        <pref_change_commods> 
+          <val>UOX_232</val> 
+        </pref_change_commods>
+        <pref_change_values> 
+          <val>1e5</val> 
+        </pref_change_values>
+        <cycle_time>18</cycle_time>
+        <refuel_time>0</refuel_time>
+        <assem_size>29565</assem_size> 
+        <n_assem_core>3</n_assem_core>
+        <n_assem_batch>1</n_assem_batch>
+        <power_cap>1000</power_cap> 
+      </Reactor>
+    </config>
+  </facility>
+
+<!--
+  <facility>
+    <name>LWR</name>
+    <lifetime>720</lifetime>
+    <config>
+      <Reactor>
         <fuel_incommods> <val>UOX</val> </fuel_incommods>
         <fuel_outcommods> <val>SpentUOX</val> </fuel_outcommods>
         <fuel_inrecipes> <val>UOX_no232</val> </fuel_inrecipes>
         <fuel_outrecipes> <val>UOX_spent_no232</val> </fuel_outrecipes>
-        <recipe_change_times> <val>264</val> </recipe_change_times> <!--switches to U232 additive in 2022-->
+        <recipe_change_times> <val>264</val> </recipe_change_times>
         <recipe_change_commods> <val>UOX</val> </recipe_change_commods>
-        <recipe_change_in> <val>UOX</val> </recipe_change_in>
-        <recipe_change_out> <val>UOX_spent</val> </recipe_change_out>
-        <!-- reactor parameters-->
+        <recipe_change_in> <val>UOX_232</val> </recipe_change_in>
+        <recipe_change_out> <val>UOX_spent_232</val> </recipe_change_out>
         <cycle_time>18</cycle_time>
         <refuel_time>0</refuel_time>
-        <assem_size>29565</assem_size> <!--kg-->
+        <assem_size>29565</assem_size>
         <n_assem_core>3</n_assem_core>
         <n_assem_batch>1</n_assem_batch>
-        <power_cap>1000</power_cap> <!--MWe-->
+        <power_cap>1000</power_cap>
       </Reactor>
     </config>
   </facility>
+-->
+        <!--fuel input info-->
+    <!--switches to U232 additive in 2022-->
+        <!-- reactor parameters-->
 
 </My_include>

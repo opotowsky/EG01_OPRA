@@ -1,14 +1,13 @@
 <simulation xmlns:xi="http://www.w3.org/2001/XInclude">
 
   <control>
-    <duration>1200</duration>
+    <duration>864</duration> <!--50 years beyond 2022-->
     <startmonth>1</startmonth>
     <startyear>2000</startyear>
     <decay>never</decay>
     <!--<tolerance_resource>1e-5</tolerance_resource>-->
     <!--<explicit_inventory>true</explicit_inventory>-->
   </control>
-
 
   <archetypes>
     <spec> <lib>cycamore</lib> <name>GrowthRegion</name> </spec>
@@ -21,7 +20,6 @@
     <spec> <lib>cycamore</lib> <name>Storage</name>      </spec>
     <spec> <lib>cycamore</lib> <name>Sink</name>         </spec>
   </archetypes>
-
  
   <region>
     <name>GrowthRegion</name>
@@ -63,11 +61,35 @@
           <number>1</number>
         </entry>
         <entry>
-          <prototype>Enrichment</prototype>
+          <prototype>Source233</prototype>
           <number>1</number>
         </entry>
         <entry>
-          <prototype>EnrMixer</prototype>
+          <prototype>Source234</prototype>
+          <number>1</number>
+        </entry>
+        <entry>
+          <prototype>Enrichment_no232</prototype>
+          <number>1</number>
+        </entry>
+        <entry>
+          <prototype>Enrichment_232</prototype>
+          <number>1</number>
+        </entry>
+        <entry>
+          <prototype>EnrStorage_no232</prototype>
+          <number>1</number>
+        </entry>
+        <entry>
+          <prototype>EnrStorage_232</prototype>
+          <number>1</number>
+        </entry>
+        <entry>
+          <prototype>EnrMixer_no232</prototype>
+          <number>1</number>
+        </entry>
+        <entry>
+          <prototype>EnrMixer_232</prototype>
           <number>1</number>
         </entry>
         <entry>
@@ -92,8 +114,14 @@
           <prototypes>
             <val>Source</val>
             <val>Source232</val>
-            <val>Enrichment</val>
-            <val>EnrMixer</val>
+            <val>Source233</val>
+            <val>Source234</val>
+            <val>Enrichment_no232</val>
+            <val>Enrichment_232</val>
+            <val>EnrStorage_no232</val>
+            <val>EnrStorage_232</val>
+            <val>EnrMixer_232</val>
+            <val>EnrMixer_no232</val>
             <val>DU_Storage</val>
             <val>LWR</val>
             <val>LWR_storage</val>
@@ -120,20 +148,57 @@
     <name>Source232</name>
     <config>
       <Source>
-        <outcommod>Additive</outcommod>
-        <outrecipe>Additive</outrecipe>
-        <throughput>1e100</throughput>
+        <outcommod>U232</outcommod>
+        <outrecipe>U232</outrecipe>
+        <throughput>1e10</throughput>
       </Source>
     </config>
   </facility>
 
   <facility>
-    <name>Enrichment</name>
+    <name>Source233</name>
+    <config>
+      <Source>
+        <outcommod>U233</outcommod>
+        <outrecipe>U233</outrecipe>
+        <throughput>1e10</throughput>
+      </Source>
+    </config>
+  </facility>
+
+  <facility>
+    <name>Source234</name>
+    <config>
+      <Source>
+        <outcommod>U234</outcommod>
+        <outrecipe>U234</outrecipe>
+        <throughput>1e10</throughput>
+      </Source>
+    </config>
+  </facility>
+
+  <facility>
+    <name>Enrichment_no232</name>
     <config>
       <Enrichment>
         <feed_commod>NU</feed_commod>
         <feed_recipe>NU</feed_recipe>
-        <product_commod>AlmostUOX</product_commod>
+        <product_commod>AlmostUOX_no232</product_commod>
+        <tails_commod>DU</tails_commod>
+        <tails_assay>0.0025</tails_assay>
+        <swu_capacity>1e100</swu_capacity>
+        <initial_feed>1e100</initial_feed>
+      </Enrichment>
+    </config>
+  </facility>
+
+  <facility>
+    <name>Enrichment_232</name>
+    <config>
+      <Enrichment>
+        <feed_commod>NU</feed_commod>
+        <feed_recipe>NU</feed_recipe>
+        <product_commod>AlmostUOX_232</product_commod>
         <tails_commod>DU</tails_commod>
         <tails_assay>0.0025</tails_assay>
         <swu_capacity>1e100</swu_capacity>
@@ -143,41 +208,132 @@
   </facility>
 
 <!-- Since we are using recipe-based enrichment & the enr facility can't handle
-more than two isotopes: Making a post-enrichment mixer facility that will take
-in AlmostUOX and various other isotopes to produce the UOX recipe.  -->
+more than two isotopes: Making 2 post-enrichment storage-then-mixer facilities
+that will take in AlmostUOX and various other isotopes to produce the UOX
+recipes.  -->
+
   <facility>
-    <name>EnrMixer</name>
+    <name>EnrStorage_no232</name>
+    <config>
+      <Storage>
+        <in_commods><val>AlmostUOX_no232</val></in_commods>
+        <in_recipe>AlmostUOX_no232</in_recipe>
+        <out_commods><val>AlmostUOX_stored_no232</val></out_commods>
+        <residence_time>0</residence_time>
+        <throughput>1e8</throughput>
+        <max_inv_size>1e10</max_inv_size>
+      </Storage>
+    </config>
+  </facility>
+
+  <facility>
+    <name>EnrMixer_no232</name>
     <config>
       <Mixer>
         <in_streams>
           <stream>
             <info>
-              <mixing_ratio>0.0005</mixing_ratio>
-              <buf_size>1e100</buf_size>
+              <mixing_ratio>0.0004631049477</mixing_ratio>
+              <buf_size>1e6</buf_size>
             </info>
             <commodities>
               <item>
-                <commodity>Additive</commodity>
+                <commodity>U234</commodity>
                 <pref>1.0</pref>
               </item>
             </commodities>
           </stream>
           <stream>
             <info>
-              <mixing_ratio>0.9995</mixing_ratio>
-              <buf_size>1e100</buf_size>
+              <mixing_ratio>0.9995368950523</mixing_ratio>
+              <buf_size>1e8</buf_size>
             </info>
             <commodities>
               <item>
-                <commodity>AlmostUOX</commodity>
+                <commodity>AlmostUOX_stored_no232</commodity>
                 <pref>1.0</pref>
               </item>
             </commodities>
           </stream>
         </in_streams>
-        <out_commod>UOX</out_commod>
-        <throughput>1e100</throughput>
-        <out_buf_size>1e100</out_buf_size>
+        <out_commod>UOX_no232</out_commod>
+        <throughput>1e10</throughput>
+        <out_buf_size>1e20</out_buf_size>
+      </Mixer>
+    </config>
+  </facility>
+
+  <facility>
+    <name>EnrStorage_232</name>
+    <config>
+      <Storage>
+        <in_commods><val>AlmostUOX_232</val></in_commods>
+        <in_recipe>AlmostUOX_232</in_recipe>
+        <out_commods><val>AlmostUOX_stored_232</val></out_commods>
+        <residence_time>0</residence_time>
+        <throughput>1e8</throughput>
+        <max_inv_size>1e10</max_inv_size>
+      </Storage>
+    </config>
+  </facility>
+
+  <facility>
+    <name>EnrMixer_232</name>
+    <config>
+      <Mixer>
+        <in_streams>
+          <stream>
+            <info>
+              <mixing_ratio>0.0000000010434</mixing_ratio>
+              <buf_size>1e6</buf_size>
+            </info>
+            <commodities>
+              <item>
+                <commodity>U232</commodity>
+                <pref>1.0</pref>
+              </item>
+            </commodities>
+          </stream>
+          <stream>
+            <info>
+              <mixing_ratio>0.0000000012228</mixing_ratio>
+              <buf_size>1e6</buf_size>
+            </info>
+            <commodities>
+              <item>
+                <commodity>U233</commodity>
+                <pref>1.0</pref>
+              </item>
+            </commodities>
+          </stream>
+          <stream>
+            <info>
+              <mixing_ratio>0.0004631049466</mixing_ratio>
+              <buf_size>1e6</buf_size>
+            </info>
+            <commodities>
+              <item>
+                <commodity>U234</commodity>
+                <pref>1.0</pref>
+              </item>
+            </commodities>
+          </stream>
+          <stream>
+            <info>
+              <mixing_ratio>0.9995368927873</mixing_ratio>
+              <buf_size>1e8</buf_size>
+            </info>
+            <commodities>
+              <item>
+                <commodity>AlmostUOX_stored_232</commodity>
+                <pref>1.0</pref>
+              </item>
+            </commodities>
+          </stream>
+        </in_streams>
+        <out_commod>UOX_232</out_commod>
+        <throughput>1e10</throughput>
+        <out_buf_size>1e20</out_buf_size>
       </Mixer>
     </config>
   </facility>
@@ -201,7 +357,6 @@ in AlmostUOX and various other isotopes to produce the UOX recipe.  -->
         <in_commods>
           <val>DU_stored</val>
           <val>SpentUOX_stored</val>
-          <val>Waste</val>
         </in_commods>
         <capacity>1e100</capacity>
       </Sink>
