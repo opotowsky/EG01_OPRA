@@ -19,11 +19,11 @@
     <config>
       <Storage>
         <in_commods> 
-          <val>SpentUOX</val>
 <!--
-          <val>SpentUOX_no232</val> 
-          <val>SpentUOX_232</val>
+          <val>SpentUOX</val>
 -->
+          <val>SpentUOX_NoAdditive</val> 
+          <val>SpentUOX_Additive</val>
         </in_commods>
         <out_commods> 
           <val>SpentUOX_cooled</val> 
@@ -33,19 +33,18 @@
     </config>
   </facility>
 
-<!--
   <facility>
     <name>LWR</name>
     <lifetime>720</lifetime>
     <config>
       <Reactor>
         <fuel_incommods> 
-          <val>UOX_no232</val> 
-          <val>UOX_232</val> 
+          <val>UOX_NoAdditive</val> 
+          <val>UOX_Additive</val> 
         </fuel_incommods>
         <fuel_outcommods> 
-          <val>SpentUOX_no232</val> 
-          <val>SpentUOX_232</val> 
+          <val>SpentUOX_NoAdditive</val> 
+          <val>SpentUOX_Additive</val> 
         </fuel_outcommods>
         <fuel_inrecipes> 
           <val>UOX_no232</val> 
@@ -57,11 +56,17 @@
         </fuel_outrecipes>
         <fuel_prefs>
           <val>1</val>
-          <val>1e-5</val>
+          <val>0.01</val>
         </fuel_prefs>
-        <pref_change_times> <val>264</val> </pref_change_times>
-        <pref_change_commods> <val>UOX_232</val> </pref_change_commods>
-        <pref_change_values> <val>1e5</val> </pref_change_values>
+        <pref_change_times> 
+          <val>264</val>
+        </pref_change_times>
+        <pref_change_commods> 
+          <val>UOX_Additive</val> 
+        </pref_change_commods>
+        <pref_change_values> 
+          <val>100</val> 
+        </pref_change_values>
         <cycle_time>18</cycle_time>
         <refuel_time>0</refuel_time>
         <assem_size>29565</assem_size> 
@@ -71,8 +76,8 @@
       </Reactor>
     </config>
   </facility>
--->
 
+<!--
   <facility>
     <name>LWR</name>
     <lifetime>720</lifetime>
@@ -95,6 +100,7 @@
       </Reactor>
     </config>
   </facility>
+-->
 
         <!--fuel input info-->
     <!--switches to U232 additive in 2022-->

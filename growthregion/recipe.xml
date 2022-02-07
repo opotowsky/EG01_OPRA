@@ -29,19 +29,15 @@
   </recipe>
   
   <recipe>
-    <name>U232</name>
+    <name>Additive_232_233_234</name>
     <basis>mass</basis>
-    <nuclide> <id>U232</id> <comp>1.0</comp> </nuclide>
-  </recipe>
-  
+    <nuclide> <id>U232</id> <comp>0.0000000010434</comp> </nuclide>
+    <nuclide> <id>U233</id> <comp>0.0000000012228</comp> </nuclide>
+    <nuclide> <id>U234</id> <comp>0.0004631049466</comp> </nuclide>
+  </recipe> 
+ 
   <recipe>
-    <name>U233</name>
-    <basis>mass</basis>
-    <nuclide> <id>U233</id> <comp>1.0</comp> </nuclide>
-  </recipe>
-  
-  <recipe>
-    <name>U234</name>
+    <name>NonAdditive_234</name>
     <basis>mass</basis>
     <nuclide> <id>U234</id> <comp>1.0</comp> </nuclide>
   </recipe>
