@@ -9,6 +9,13 @@
     <!--<explicit_inventory>true</explicit_inventory>-->
   </control>
 
+<!--
+  <commodity>
+    <name>UOX_Additive</name>
+    <solution_priority>10</solution_priority>
+  </commodity>
+-->
+
   <archetypes>
     <spec> <lib>cycamore</lib> <name>GrowthRegion</name> </spec>
     <spec> <lib>cycamore</lib> <name>ManagerInst</name>  </spec>
@@ -55,6 +62,9 @@
       <config>
         <DeployInst>
           <prototypes>
+            <val>SourceNoAdditive</val>
+            <val>EnrStorage_no232</val>
+            <val>EnrMixer_no232</val>
             <val>SourceAdditive</val>
             <val>EnrStorage_232</val>
             <val>EnrMixer_232</val>
@@ -63,12 +73,26 @@
             <val>1</val>
             <val>1</val>
             <val>1</val>
+            <val>1</val>
+            <val>1</val>
+            <val>1</val>
           </n_build>
           <build_times>
+            <val>1</val>
+            <val>1</val>
+            <val>1</val>
             <val>263</val>
             <val>263</val>
             <val>263</val>
           </build_times>
+          <lifetimes>
+            <val>263</val>
+            <val>263</val>
+            <val>263</val>
+            <val>-1</val>
+            <val>-1</val>
+            <val>-1</val>
+          </lifetimes>
         </DeployInst>
       </config>
     </institution>
@@ -131,9 +155,11 @@
           <prototypes>
             <val>SourceNU</val>
             <val>Enrichment</val>
+<!--
             <val>SourceNoAdditive</val>
             <val>EnrStorage_no232</val>
             <val>EnrMixer_no232</val>
+-->
             <val>SourceAdditive</val>
             <val>EnrStorage_232</val>
             <val>EnrMixer_232</val>
@@ -247,8 +273,8 @@ recipes.  -->
         </in_streams>
         <!--<out_commod>UOX</out_commod>-->
         <out_commod>UOX_NoAdditive</out_commod>
-        <throughput>1e10</throughput>
-        <out_buf_size>1e20</out_buf_size>
+        <throughput>3e8</throughput>
+        <out_buf_size>1e10</out_buf_size>
       </Mixer>
     </config>
   </facility>

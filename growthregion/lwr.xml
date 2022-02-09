@@ -55,17 +55,17 @@
           <val>UOX_spent_232</val> 
         </fuel_outrecipes>
         <fuel_prefs>
+          <val>2</val>
           <val>1</val>
-          <val>0.01</val>
         </fuel_prefs>
         <pref_change_times> 
-          <val>24</val>
+          <val>264</val>
         </pref_change_times>
         <pref_change_commods> 
           <val>UOX_Additive</val> 
         </pref_change_commods>
         <pref_change_values> 
-          <val>100</val> 
+          <val>3</val> 
         </pref_change_values>
         <cycle_time>18</cycle_time>
         <refuel_time>0</refuel_time>
