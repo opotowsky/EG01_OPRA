@@ -3,7 +3,7 @@
   <control>
     <duration>864</duration> <!--50 years beyond 2022-->
     <startmonth>1</startmonth>
-    <startyear>2022</startyear>
+    <startyear>2000</startyear>
     <decay>never</decay>
     <!--<tolerance_resource>1e-5</tolerance_resource>-->
     <!--<explicit_inventory>true</explicit_inventory>-->
@@ -273,8 +273,8 @@ recipes.  -->
         </in_streams>
         <!--<out_commod>UOX</out_commod>-->
         <out_commod>UOX_NoAdditive</out_commod>
-        <throughput>3e8</throughput>
-        <out_buf_size>1e10</out_buf_size>
+        <throughput>1e10</throughput>
+        <out_buf_size>1e20</out_buf_size>
       </Mixer>
     </config>
   </facility>

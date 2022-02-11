@@ -19,11 +19,8 @@
     <config>
       <Storage>
         <in_commods> 
-<!--
-          <val>SpentUOX</val>
--->
-          <val>SpentUOX_NoAdditive</val> 
           <val>SpentUOX_Additive</val>
+          <val>SpentUOX_NoAdditive</val> 
         </in_commods>
         <out_commods> 
           <val>SpentUOX_cooled</val> 
@@ -39,24 +36,24 @@
     <config>
       <Reactor>
         <fuel_incommods> 
-          <val>UOX_NoAdditive</val> 
           <val>UOX_Additive</val> 
+          <val>UOX_NoAdditive</val> 
         </fuel_incommods>
         <fuel_outcommods> 
-          <val>SpentUOX_NoAdditive</val> 
           <val>SpentUOX_Additive</val> 
+          <val>SpentUOX_NoAdditive</val> 
         </fuel_outcommods>
         <fuel_inrecipes> 
-          <val>UOX_no232</val> 
           <val>UOX_232</val> 
+          <val>UOX_no232</val> 
         </fuel_inrecipes>
         <fuel_outrecipes> 
-          <val>UOX_spent_no232</val> 
           <val>UOX_spent_232</val> 
+          <val>UOX_spent_no232</val> 
         </fuel_outrecipes>
         <fuel_prefs>
-          <val>2</val>
           <val>1</val>
+          <val>2</val>
         </fuel_prefs>
         <pref_change_times> 
           <val>264</val>
