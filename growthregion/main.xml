@@ -155,11 +155,9 @@
           <prototypes>
             <val>SourceNU</val>
             <val>Enrichment</val>
-<!--
             <val>SourceNoAdditive</val>
             <val>EnrStorage_no232</val>
             <val>EnrMixer_no232</val>
--->
             <val>SourceAdditive</val>
             <val>EnrStorage_232</val>
             <val>EnrMixer_232</val>
@@ -271,7 +269,6 @@ recipes.  -->
             </commodities>
           </stream>
         </in_streams>
-        <!--<out_commod>UOX</out_commod>-->
         <out_commod>UOX_NoAdditive</out_commod>
         <throughput>1e10</throughput>
         <out_buf_size>1e20</out_buf_size>
@@ -323,7 +320,6 @@ recipes.  -->
             </commodities>
           </stream>
         </in_streams>
-        <!--<out_commod>UOX</out_commod>-->
         <out_commod>UOX_Additive</out_commod>
         <throughput>1e10</throughput>
         <out_buf_size>1e20</out_buf_size>
