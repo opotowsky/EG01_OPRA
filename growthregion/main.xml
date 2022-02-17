@@ -9,13 +9,6 @@
     <!--<explicit_inventory>true</explicit_inventory>-->
   </control>
 
-<!--
-  <commodity>
-    <name>UOX_Additive</name>
-    <solution_priority>10</solution_priority>
-  </commodity>
--->
-
   <archetypes>
     <spec> <lib>cycamore</lib> <name>GrowthRegion</name> </spec>
     <spec> <lib>cycamore</lib> <name>ManagerInst</name>  </spec>
@@ -56,51 +49,13 @@
       </config>
     </institution>
 
-<!--
     <institution> 
-      <name>FC_DepInst</name>
-      <config>
-        <DeployInst>
-          <prototypes>
-            <val>SourceNoAdditive</val>
-            <val>EnrStorage_no232</val>
-            <val>EnrMixer_no232</val>
-            <val>SourceAdditive</val>
-            <val>EnrStorage_232</val>
-            <val>EnrMixer_232</val>
-          </prototypes>
-          <n_build>
-            <val>1</val>
-            <val>1</val>
-            <val>1</val>
-            <val>1</val>
-            <val>1</val>
-            <val>1</val>
-          </n_build>
-          <build_times>
-            <val>1</val>
-            <val>1</val>
-            <val>1</val>
-            <val>263</val>
-            <val>263</val>
-            <val>263</val>
-          </build_times>
-          <lifetimes>
-            <val>263</val>
-            <val>263</val>
-            <val>263</val>
-            <val>-1</val>
-            <val>-1</val>
-            <val>-1</val>
-          </lifetimes>
-        </DeployInst>
-      </config>
-    </institution>
--->
-
-    <institution> 
-      <name>FC_ManInst</name>
+      <name>ManInst</name>
       <initialfacilitylist>
+        <entry>
+          <prototype>Source_InitUOX</prototype>
+          <number>1</number>
+        </entry>
         <entry>
           <prototype>SourceNU</prototype>
           <number>1</number>
@@ -172,13 +127,27 @@
     </institution>
   </region>
 
+<!--testing out having enough reactor fuel available at timestep 1 for all 
+    reactors...hard-coded math will change if assembly size changes!!!!
+-->
+  <facility>
+    <name>Source_InitUOX</name>
+    <config>
+      <Source>
+        <outcommod>UOX_NoAdditive</outcommod>
+        <outrecipe>UOX_no232</outrecipe>
+        <inventory_size>8869500</inventory_size>
+      </Source>
+    </config>
+  </facility>
+
   <facility>
     <name>SourceNU</name>
     <config>
       <Source>
         <outcommod>NU</outcommod>
         <outrecipe>NU</outrecipe>
-        <throughput>1e100</throughput>
+        <throughput>2.1e11</throughput>
       </Source>
     </config>
   </facility>
@@ -189,7 +158,7 @@
       <Source>
         <outcommod>NonAdditive</outcommod>
         <outrecipe>NonAdditive_234</outrecipe>
-        <throughput>1e10</throughput>
+        <throughput>1e6</throughput>
       </Source>
     </config>
   </facility>
@@ -200,7 +169,7 @@
       <Source>
         <outcommod>Additive</outcommod>
         <outrecipe>Additive_232_233_234</outrecipe>
-        <throughput>1e10</throughput>
+        <throughput>1e6</throughput>
       </Source>
     </config>
   </facility>
@@ -347,7 +316,6 @@ recipes.  -->
           <val>DU_stored</val>
           <val>SpentUOX_stored</val>
         </in_commods>
-        <capacity>1e100</capacity>
       </Sink>
     </config>
   </facility>
