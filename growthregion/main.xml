@@ -30,7 +30,7 @@
             <commod>power</commod>
             <piecewise_function>
               <piece> 
-                <start>1</start>
+                <start>18</start>
                 <function>
                   <type>linear</type>
                   <params>0 100000</params>
